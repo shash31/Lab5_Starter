@@ -6,7 +6,7 @@ function init() {
   // TODO
   const hornimg = document.querySelector("#expose img");
   const audiofile = document.getElementsByClassName("hidden")[0];
-  const selecthorn = document.getElementByID("horn-select");
+  const selecthorn = document.getElementById("horn-select");
 
   selecthorn.addEventListener("change", function() {
     // update and load image
