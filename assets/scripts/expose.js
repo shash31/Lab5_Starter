@@ -4,10 +4,9 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   // TODO
-  const exposeDOM = document.getElementById("expose");
-  const hornimg = exposeDOM.querySelector("img");
-  const audiofile = exposeDOM.getElementsByClassName("hidden")[0];
-  const selecthorn = exposeDOM.getElementByID("horn-select");
+  const hornimg = document.querySelector("#expose img");
+  const audiofile = document.getElementsByClassName("hidden")[0];
+  const selecthorn = document.getElementByID("horn-select");
 
   selecthorn.addEventListener("change", function() {
     // update and load image
@@ -17,8 +16,8 @@ function init() {
     audiofile.src = "assets/audio/" + selecthorn.value + ".mp3";
   });
   
-  const volslider = exposeDOM.getElementById("volume");
-  const volimg = exposeDOM.querySelector("#volume-controls img");
+  const volslider = document.getElementById("volume");
+  const volimg = document.querySelector("#volume-controls img");
 
   volslider.addEventListener("input", function() {
     if (volslider.value == 0) {
@@ -35,7 +34,7 @@ function init() {
     audiofile.volume = volslider.value / 100;
   });
 
-  const playaudio = exposeDOM.querySelector("button");
+  const playaudio = document.querySelector("button");
 
   playaudio.addEventListener("click", function() {
     audiofile.play();
