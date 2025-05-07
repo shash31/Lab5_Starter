@@ -10,8 +10,8 @@ function init() {
 
   selecthorn.addEventListener("change", function() {
     // update and load image
-    hornimg.src = "assets/image" + selecthorn.value + ".svg";
-    hornimg.load();
+    hornimg.src = "assets/images/" + selecthorn.value + ".svg";
+
     // update and set audio file
     audiofile.src = "assets/audio/" + selecthorn.value + ".mp3";
   });
@@ -22,25 +22,26 @@ function init() {
   volslider.addEventListener("input", function() {
     if (volslider.value == 0) {
       volimg.src = "assets/icons/volume-level-0.svg";
-    } else if (value < 33) {
+    } else if (volslider.value < 33) {
       volimg.src = "assets/icons/volume-level-1.svg";
-    } else if (value < 67) {
+    } else if (volslider.value < 67) {
       volimg.src = "assets/icons/volume-level-2.svg"; 
     } else {
       volimg.src = "assets/icons/volume-level-3.svg";
     }
-    volimg.load();
 
     audiofile.volume = volslider.value / 100;
+    console.log(audiofile.volume);
   });
 
   const playaudio = document.querySelector("button");
+  const confetti = new JSConfetti();
 
   playaudio.addEventListener("click", function() {
     audiofile.play();
     
     if (selecthorn.value == "party-horn") {
-      JSConfetti();
+      confetti.addConfetti();
     }
   });
 }
